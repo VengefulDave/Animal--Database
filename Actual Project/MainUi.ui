@@ -60,22 +60,6 @@ QWidget#widget{ background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:0.01
      <string> Database</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="ExitB">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>560</y>
-      <width>70</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:qlineargradient(spread:reflect, x1:0.582, y1:0.642, x2:0.508475, y2:0.597, stop:0 rgba(255, 77, 77, 255), stop:1 rgba(255, 104, 104, 255))</string>
-    </property>
-    <property name="text">
-     <string>Exit</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="ReadB">
     <property name="geometry">
      <rect>
