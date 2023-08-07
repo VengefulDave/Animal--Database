@@ -13,7 +13,6 @@ class Menu_Ui(QDialog):
     def __init__(self):
         super(Menu_Ui, self).__init__()
         loadUi("Actual Project/MainUi.Ui", self)
-        self.ExitB.clicked.connect(self.quitpro)
         self.ReadB.clicked.connect(self.gotoRead)
         self.WriteB.clicked.connect(self.gotoAdd)
         self.EditB.clicked.connect(self.gotoEdit)                                                      
@@ -32,9 +31,6 @@ class Menu_Ui(QDialog):
         Edit = Edit_Ui()
         widget.addWidget(Edit)
         widget.setCurrentIndex(widget.currentIndex()+1)
-
-    def quitpro():
-        sys.exit()
 
 #Read window class- Code for its interactable buttons.
 class Read_Ui(QDialog):
