@@ -17,16 +17,19 @@ class Menu_Ui(QDialog):
         self.WriteB.clicked.connect(self.gotoAdd)
         self.EditB.clicked.connect(self.gotoEnterEdit)                                                      
     
+    #Opens the read function GUI window.
     def gotoRead(self):
         Read = Read_Ui()
         widget.addWidget(Read)
         widget.setCurrentIndex(widget.currentIndex()+1)
 
+    #Opens the add function GUI window.
     def gotoAdd(self):
         Add = Add_Ui()
         widget.addWidget(Add)
         widget.setCurrentIndex(widget.currentIndex()+1)
-    
+
+    #Opens the edit id checker function GUI window.
     def gotoEnterEdit(self):
         Edit = EnterEdit_Ui()
         widget.addWidget(Edit)
@@ -49,6 +52,7 @@ class Read_Ui(QDialog):
             self.RAlert.setText("Please Input In Animal Id")
         
         else:
+            #Looks for the animal id given inside the databse.
             conn = sqlite3.connect("Actual Project/AnimalData.db")
             cursor = conn.cursor()
             selectanimal = cursor.execute("SELECT id, name, age, species, \
@@ -58,6 +62,7 @@ class Read_Ui(QDialog):
             if selectanimal == []:
                 self.RAlert.setText("No Such Animal Id In Data Base")
             else:
+                #When and if it finds the id it writes the information down in the text bars.
                 print(selectanimal)
                 self.RAlert.setText("")
                 self.RName.setText((selectanimal[0])[1])
@@ -72,7 +77,7 @@ class Read_Ui(QDialog):
                 self.RLocat.setText((selectanimal[0])[10])
                 self.RTbpd.setText((selectanimal[0])[11])
                 
-
+    #Opens the menu window when menu button clicked.
     def gotoMenu(self):
         Menu = Menu_Ui()
         widget.addWidget(Menu)
@@ -89,6 +94,7 @@ class Add_Ui(QDialog):
         self.AConfirmB.clicked.connect(self.AddId)
     
     def AddId(self):
+        #Puts the information typed in boxes into variables.
         self.AAlert.setStyleSheet('font: 16pt "OCR A Extended"; color:red;')
         self.AAlert.setText("")
         addidinput = self.AddIdInput.text()
@@ -108,6 +114,7 @@ class Add_Ui(QDialog):
         cursor = conn.cursor()
         addcheck = cursor.execute("SELECT id FROM data WHERE id = ?",(addidinput,),).fetchall()
         
+        #Checks if the user missed any boxes.
         if len(addidinput)== 0 or len(addname)== 0 or len(addage)== 0 or len(addspecies)== 0 or len(addbreed)== 0 \
             or len(adddesexed)== 0 or len(addperson)== 0 or len(addvacc)== 0 or len(addinjury)== 0 or len(addinfect)== 0 \
             or len(addlocat)== 0 or len(addtbpd) == 0:
@@ -118,6 +125,7 @@ class Add_Ui(QDialog):
                 (addcheck[0])[0] == addidinput
                 self.AAlert.setText("Animal With Id '{}' Already Exists".format(addidinput))
             except:
+                #Puts all the inputed animal information into the database.
                 conn = sqlite3.connect("Actual Project/AnimalData.db")
                 cursor = conn.cursor()
                 animalinfo = (addidinput, addname, addage, addspecies, addbreed, adddesexed, addperson, addvacc, addinjury, addinfect, addlocat, addtbpd)
@@ -128,6 +136,7 @@ class Add_Ui(QDialog):
                 self.AAlert.setStyleSheet('font: 16pt "OCR A Extended"; color:green;')
                 self.AAlert.setText("Succesfully Added Animal Id/Information To DataBase!")
 
+    #Opens the menu window when menu button clicked.
     def gotoMenu(self):
         Menu = Menu_Ui()
         widget.addWidget(Menu)
@@ -144,6 +153,7 @@ class Edit_Ui(QDialog):
         self.EAlert.setStyleSheet('font: 16pt "OCR A Extended"; color:red;')
         self.EConfirmB.clicked.connect(self.saveanimal)
         
+        #Writes all information about animal which id was given in EnterEdit GUI.
         EditChosenId2 = EditChosenId
         conn = sqlite3.connect("Actual Project/AnimalData.db")
         cursor = conn.cursor()
@@ -167,6 +177,7 @@ class Edit_Ui(QDialog):
         self.ETbpd.setText((selecteditanimal[0])[11])
 
     def saveanimal(self):
+        #Deletes old data that was attached to the given animal id.
         conn = sqlite3.connect("Actual Project/AnimalData.db")
         cursor = conn.cursor()
         cursor.execute("DELETE FROM data WHERE id = '{}'".format(EditChosenId))
@@ -183,6 +194,7 @@ class Edit_Ui(QDialog):
         addlocat = self.ELoc.text()
         addtbpd = self.ETbpd.text()
         
+        #Checks if the user missed any input boxes.
         if len(addname)== 0 or len(addage)== 0 or len(addspecies)== 0 or len(addbreed)== 0 \
             or len(adddesexed)== 0 or len(addperson)== 0 or len(addvacc)== 0 or \
             len(addinjury)== 0 or len(addinfect)== 0 \
@@ -191,6 +203,7 @@ class Edit_Ui(QDialog):
             self.EAlert.setText("Please Fill In All Fields")
 
         else:
+            #Updates new information given into old given animal id.
             animalinfo = ( EditChosenId, addname, addage, addspecies, addbreed, adddesexed\
                       , addperson, addvacc, addinjury, addinfect, addlocat, addtbpd)
             cursor.execute('INSERT INTO Data (Id, Name, Age, Species, Breed, Desexed, Personality, Vaccination, Injury,\
@@ -200,6 +213,7 @@ class Edit_Ui(QDialog):
             self.EAlert.setStyleSheet('font: 16pt "OCR A Extended"; color:green;')
             self.EAlert.setText("Succesfully Updated Animal Information!")
 
+    #Opens the menu window when menu button clicked.
     def gotoMenu(self):
         Menu = Menu_Ui()
         widget.addWidget(Menu)
@@ -216,6 +230,7 @@ class EnterEdit_Ui(QDialog):
         self.EEAlert.setText("")
 
     def entereditMenu(self):
+        #Looks for given animal id in database.
         choseneditid = self.EEIdInput.text()
         conn = sqlite3.connect("Actual Project/AnimalData.db")
         cursor = conn.cursor()
@@ -226,6 +241,7 @@ class EnterEdit_Ui(QDialog):
         elif selecteeanimal== []:
             self.EEAlert.setText("No Such Animal Id In Data Base")
         else:
+            #Opens the edit window with the chosen animal id.
             self.EEAlert.setText("")
             global EditChosenId
             EditChosenId = self.EEIdInput.text()
@@ -233,7 +249,7 @@ class EnterEdit_Ui(QDialog):
             widget.addWidget(Edit)
             widget.setCurrentIndex(widget.currentIndex()+1)
             
-    
+    #Opens the menu window when menu button clicked.
     def gotoMenu(self):
         Menu = Menu_Ui()
         widget.addWidget(Menu)
