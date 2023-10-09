@@ -44,6 +44,8 @@ class Read_Ui(QDialog):
         self.RAlert.setText("")
         self.ReadMenuB.clicked.connect(self.gotoMenu)
         self.ReadEnterConfirm.clicked.connect(self.printid)
+        self.ReadIdInput.setText('"Enter animal id here"')
+        
 
     def printid(self):
         readinput = self.ReadIdInput.text()
@@ -92,6 +94,18 @@ class Add_Ui(QDialog):
         self.AddMenuB.clicked.connect(self.gotoMenu)
         self.AAlert.setText("")
         self.AConfirmB.clicked.connect(self.AddId)
+        self.AddIdInput.setText('"State the animals id here"')
+        self.AName.setText('"State the name of the animal here"')
+        self.AAge.setText('"State the age of the animal here"')
+        self.ASpecies.setText('"State the species of the animal here"')
+        self.ABreed.setText('"State the animals breed here"')
+        self.ADesexed.setText('"State whether the animal is desexed or not, Y or N"')
+        self.APerson.setText('"State the animals personality here"')
+        self.AVacc.setText('"State whether the animal is vaccinated or not, Y or N"')
+        self.AInjury.setText('"State whether the animal is injured, Y or N. Specify injury if Y"')
+        self.AInfect.setText('"State whether the animal is infected, Y or N. Specify infection if Y"')
+        self.ALoc.setText('"State the animals location in the shelter here"')
+        self.ATbpd.setText('"State if animal is to be put down, Y or N"')
     
     def AddId(self):
         #Puts the information typed in boxes into variables.
