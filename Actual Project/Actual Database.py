@@ -124,6 +124,8 @@ class Add_Ui(QDialog):
         addlocat = self.ALoc.text()
         addtbpd = self.ATbpd.text()
         
+        correct_inputs = ["Y","y","N","n"]
+
         conn = sqlite3.connect("Actual Project/AnimalData.db")
         cursor = conn.cursor()
         addcheck = cursor.execute("SELECT id FROM data WHERE id = ?",(addidinput,),).fetchall()
@@ -134,16 +136,16 @@ class Add_Ui(QDialog):
             or len(addlocat)== 0 or len(addtbpd) == 0:
             self.AAlert.setText("Please Fill In All Fields")
 
-        elif addage.isalpha():
+        elif not addage.isdigit():
             self.AAlert.setText("Invalid age or Age contains letters")
 
-        elif "Y" or "N" or "y" or "n" not in adddesexed:
+        elif adddesexed not in correct_inputs:
             self.AAlert.setText('"Desexed information must be "Y" or "N"')
         
-        elif addvacc != "Y" or  addvacc != "N" or addvacc != "y" or addvacc != "n":
+        elif addvacc not in correct_inputs:
             self.AAlert.setText('"Vaccination information must be "Y" or "N"')
 
-        elif addtbpd != "Y" or  addtbpd != "N" or addtbpd != "y" or addtbpd != "n":
+        elif addtbpd not in correct_inputs:
             self.AAlert.setText('"TBPD information must be "Y" or "N"')
 
         else:
