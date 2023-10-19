@@ -131,6 +131,9 @@ QWidget#widget{ background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:0.01
     <property name="toolTip">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Input animal's identification number.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
+    <property name="clearButtonEnabled">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
@@ -332,6 +335,9 @@ border: 1px solid;</string>
      <property name="toolTip">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Input animal's identification number.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
+     </property>
     </widget>
     <widget class="QLineEdit" name="AAge">
      <property name="geometry">
@@ -344,6 +350,9 @@ border: 1px solid;</string>
      </property>
      <property name="toolTip">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Input animal's identification number.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QLineEdit" name="ATbpd">
@@ -358,6 +367,9 @@ border: 1px solid;</string>
      <property name="toolTip">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Input animal's identification number.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
+     </property>
     </widget>
     <widget class="QLineEdit" name="ALoc">
      <property name="geometry">
@@ -370,6 +382,9 @@ border: 1px solid;</string>
      </property>
      <property name="toolTip">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Input animal's identification number.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QLineEdit" name="ASpecies">
@@ -384,6 +399,9 @@ border: 1px solid;</string>
      <property name="toolTip">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Input animal's identification number.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
+     </property>
     </widget>
     <widget class="QLineEdit" name="ABreed">
      <property name="geometry">
@@ -396,6 +414,9 @@ border: 1px solid;</string>
      </property>
      <property name="toolTip">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Input animal's identification number.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QLineEdit" name="ADesexed">
@@ -410,6 +431,9 @@ border: 1px solid;</string>
      <property name="toolTip">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Input animal's identification number.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
+     </property>
     </widget>
     <widget class="QLineEdit" name="APerson">
      <property name="geometry">
@@ -422,6 +446,9 @@ border: 1px solid;</string>
      </property>
      <property name="toolTip">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Input animal's identification number.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QLineEdit" name="AVacc">
@@ -436,6 +463,9 @@ border: 1px solid;</string>
      <property name="toolTip">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Input animal's identification number.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
+     </property>
     </widget>
     <widget class="QLineEdit" name="AInjury">
      <property name="geometry">
@@ -449,6 +479,9 @@ border: 1px solid;</string>
      <property name="toolTip">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Input animal's identification number.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
+     </property>
     </widget>
     <widget class="QLineEdit" name="AInfect">
      <property name="geometry">
@@ -461,6 +494,9 @@ border: 1px solid;</string>
      </property>
      <property name="toolTip">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Input animal's identification number.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>false</bool>
      </property>
     </widget>
    </widget>

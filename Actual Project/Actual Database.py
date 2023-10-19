@@ -134,6 +134,18 @@ class Add_Ui(QDialog):
             or len(addlocat)== 0 or len(addtbpd) == 0:
             self.AAlert.setText("Please Fill In All Fields")
 
+        elif addage.isalpha():
+            self.AAlert.setText("Invalid age or Age contains letters")
+
+        elif "Y" or "N" or "y" or "n" not in adddesexed:
+            self.AAlert.setText('"Desexed information must be "Y" or "N"')
+        
+        elif addvacc != "Y" or  addvacc != "N" or addvacc != "y" or addvacc != "n":
+            self.AAlert.setText('"Vaccination information must be "Y" or "N"')
+
+        elif addtbpd != "Y" or  addtbpd != "N" or addtbpd != "y" or addtbpd != "n":
+            self.AAlert.setText('"TBPD information must be "Y" or "N"')
+
         else:
             try:
                 (addcheck[0])[0] == addidinput
